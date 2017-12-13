@@ -21,7 +21,7 @@ class RedditFeedParser : JsonDeserializer<RedditFeedResponse> {
                 id = itemInfo.getString("id")
                 title = itemInfo.getString("title")
                 author = itemInfo.getString("author")
-                date = itemInfo.getLong("") ?: 0L
+                date = itemInfo.getLong("created") ?: 0L
                 thumbnail = itemInfo.getString("thumbnail")
                 rating = itemInfo.getInt("score") ?: 0
                 comments = itemInfo.getInt("num_comments") ?: 0

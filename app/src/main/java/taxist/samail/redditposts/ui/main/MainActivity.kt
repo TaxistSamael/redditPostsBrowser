@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.dimen
-import org.jetbrains.anko.toast
 import taxist.samail.redditposts.R
 import taxist.samail.redditposts.data.RedditRepository
 import taxist.samail.redditposts.model.Post
@@ -66,14 +65,14 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
     private val clickPostCallback = object: PostsAdapter.ClickPostCallback {
         override fun onPostClicked(post: Post) {
-            toast("click")
+//            toast("click")
             //todo
         }
     }
 
     private val paginationCallback = object: PostsAdapter.PaginationListener {
         override fun requestNextPage(index: String) {
-            toast("pagination")
+//            toast("pagination")
             //todo:
         }
     }

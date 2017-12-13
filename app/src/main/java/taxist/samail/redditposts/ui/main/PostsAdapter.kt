@@ -49,9 +49,9 @@ class PostsAdapter(val clickPostCallback: ClickPostCallback, val paginationListe
             item_post_author.text = post.author
             item_post_rating.text = context.getString(R.string.format_rating, post.rating)
             item_post_comments.text = context.getString(R.string.format_rating, post.comments)
-            item_post_iv_thumbnail.setImageURI(post.thumbnail)
+//            item_post_iv_thumbnail.setImageURI(post.thumbnail)
             item_post_title.text = post.title
-            item_post_date.text = getRelativeTime(post.date)
+            item_post_date.text = "${post.date}"
         }
 
         private fun getRelativeTime(date: Long) =
