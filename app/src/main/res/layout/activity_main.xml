@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:background="@android:color/black">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/posts_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/posts_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:visibility="gone" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/posts_tv_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:paddingStart="@dimen/posts_tv_placeholder_padding_left"
+        android:paddingEnd="@dimen/posts_tv_placeholder_padding_right"
+        android:text="@string/error_no_posts"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/posts_tv_placeholder_text_size"
+        android:visibility="gone"
+        tools:visibility="visible" />
+</FrameLayout>
+

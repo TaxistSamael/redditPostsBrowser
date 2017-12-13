@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="posts_tv_placeholder_padding_left">30dp</dimen>
+    <dimen name="posts_tv_placeholder_padding_right">30dp</dimen>
+    <dimen name="posts_tv_placeholder_text_size">20sp</dimen>
+    <dimen name="post_list_item_padding">10dp</dimen>
+</resources>

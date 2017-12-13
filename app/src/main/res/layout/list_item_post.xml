@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:background="@android:color/holo_blue_bright">
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/item_post_iv_thumbnail"
+        android:layout_width="140dp"
+        android:layout_height="78dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/item_post_iv_thumbnail"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/item_post_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Sotona snova zdes" />
+
+        <TextView
+            android:id="@+id/item_post_author"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            tools:text="Author: Ololo" />
+
+        <TextView
+            android:id="@+id/item_post_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            tools:text="13 min" />
+
+        <TextView
+            android:id="@+id/item_post_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            tools:text="Rating 100500" />
+
+        <TextView
+            android:id="@+id/item_post_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            tools:text="Comments 100500" />
+    </LinearLayout>
+</RelativeLayout>
