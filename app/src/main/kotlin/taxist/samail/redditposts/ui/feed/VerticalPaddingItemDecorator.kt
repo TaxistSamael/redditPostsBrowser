@@ -1,4 +1,4 @@
-package taxist.samail.redditposts.ui.main
+package taxist.samail.redditposts.ui.feed
 
 import android.graphics.Rect
 import android.support.v7.widget.RecyclerView

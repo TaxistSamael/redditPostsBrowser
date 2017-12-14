@@ -8,19 +8,19 @@
     tools:background="@android:color/black">
 
     <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/posts_refresh"
+        android:id="@+id/feed_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/posts_rv"
+            android:id="@+id/feed_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:visibility="gone" />
     </android.support.v4.widget.SwipeRefreshLayout>
 
     <TextView
-        android:id="@+id/posts_tv_placeholder"
+        android:id="@+id/feed_tv_placeholder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

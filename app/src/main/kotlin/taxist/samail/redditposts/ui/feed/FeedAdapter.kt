@@ -1,26 +1,26 @@
-package taxist.samail.redditposts.ui.main
+package taxist.samail.redditposts.ui.feed
 
 import android.support.v7.widget.RecyclerView
-import android.text.format.DateUtils.SECOND_IN_MILLIS
-import android.text.format.DateUtils.getRelativeTimeSpanString
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.list_item_post.view.*
 import org.jetbrains.anko.onClick
 import taxist.samail.redditposts.R
+import taxist.samail.redditposts.data.api.response.RedditFeedResponse
 import taxist.samail.redditposts.model.Post
+import taxist.samail.redditposts.utils.getTimeLeft
 import taxist.samail.redditposts.utils.inflate
-import java.util.*
+import taxist.samail.redditposts.utils.setProgressiveImageUri
 
+class FeedAdapter(val clickPostCallback: ClickPostCallback, val paginationListener: PaginationListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-class PostsAdapter(val clickPostCallback: ClickPostCallback, val paginationListener: PaginationListener) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-
-    private var dataSet = ArrayList<Post>(50)
     private val OFFSET = 15
-    private val PAGE_SIZE = 50
+    private var dataSet = ArrayList<Post>(50)
+    private var after = ""
 
-    fun swapData(posts: ArrayList<Post>) {
-        dataSet = posts
+    fun swapData(response: RedditFeedResponse, isFirstPage: Boolean) {
+        after = response.after
+        updateDataSet(response.feed, isFirstPage)
         notifyDataSetChanged()
     }
 
@@ -34,12 +34,17 @@ class PostsAdapter(val clickPostCallback: ClickPostCallback, val paginationListe
         val post = dataSet[position]
         vh.bind(post)
 
-        requestPagination(post, position)
+        requestPagination(position)
     }
 
-    private fun requestPagination(post: Post, position: Int) {
-        if (position != dataSet.size - OFFSET) return
-        paginationListener.requestNextPage(post.id)
+    private fun updateDataSet(posts: ArrayList<Post>, isFirstPage: Boolean) {
+        if (isFirstPage) dataSet.clear()
+        dataSet.addAll(posts)
+    }
+
+    private fun requestPagination(position: Int) {
+        if (position == dataSet.size - OFFSET)
+            paginationListener.requestNextPage(after)
     }
 
     inner class PostViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -49,13 +54,10 @@ class PostsAdapter(val clickPostCallback: ClickPostCallback, val paginationListe
             item_post_author.text = post.author
             item_post_rating.text = context.getString(R.string.format_rating, post.rating)
             item_post_comments.text = context.getString(R.string.format_rating, post.comments)
-//            item_post_iv_thumbnail.setImageURI(post.thumbnail)
+            item_post_iv_thumbnail.setProgressiveImageUri(post.thumbnail)
             item_post_title.text = post.title
-            item_post_date.text = "${post.date}"
+            item_post_date.text = context.getTimeLeft(post.date)
         }
-
-        private fun getRelativeTime(date: Long) =
-                getRelativeTimeSpanString(date, System.currentTimeMillis(), SECOND_IN_MILLIS)
     }
 
     interface ClickPostCallback {

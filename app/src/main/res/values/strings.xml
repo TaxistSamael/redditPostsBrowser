@@ -3,4 +3,20 @@
     <string name="error_no_posts">No posts. Try to refresh</string>
     <string name="format_rating">Rating: %1$d</string>
     <string name="format_comments">Comments: %1$d</string>
+
+    <string name="error_no_browser">Unable to open browser</string>
+    <string name="error_no_internet">No internet connection</string>
+    <string name="error_internal_error">Internal error. Try later</string>
+
+    <string name="format_time_left">%1$sh %2$sm ago</string>
+
+    <plurals name="days_plurals">
+        <item quantity="one">%d day</item>
+        <item quantity="few">%d days</item>
+        <item quantity="many">%d days</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+
+    <string name="format_days_left">%1$s ago</string>
+
 </resources>

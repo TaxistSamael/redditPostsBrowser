@@ -7,4 +7,5 @@ class Post (var id: String = "",
             var date: Long = 0L,
             var thumbnail: String = "",
             var rating: Int = 0,
-            var comments: Int = 0)
+            var comments: Int = 0,
+            var url: String = "")
